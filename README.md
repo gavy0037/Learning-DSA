@@ -1,5 +1,5 @@
 
-# Learning DSA and GIT🚀
+# Learning DSA  and GITand GIT🚀
 
 This repository contains my C++ and C solutions to Data Structures and Algorithms problems from **LeetCode**, **GeeksforGeeks**, and other platforms.
 
