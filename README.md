@@ -10,8 +10,8 @@ This repository contains my C++ and C solutions to Data Structures and Algorithm
 - Dynamic Programming (coming soon)
 
 ## My Progress
-- ✅ 95 LeetCode problems
-- ✅ 40 GeeksforGeeks problems
+- ✅ 90+ LeetCode problems
+- ✅ 30+ GeeksforGeeks problems
 - 🔄 Currently practicing DP
 
 ## Future Goals
