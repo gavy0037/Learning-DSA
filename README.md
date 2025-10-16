@@ -24,7 +24,7 @@ Time/Space Complexity, Recursion, Bit Manipulation
 
 02. Linear Structures
 
-Arrays, Strings, Stacks, Queues
+Arrays, Strings
 
 🏗️ In Progress
 
@@ -62,13 +62,7 @@ Full implementation of various linked list types and associated problems.
 
 Reverse List, Middle of List, Merge Two Sorted Lists (Example in C: addTwoNumbers logic)
 
-03_Stacks_Queues
-
-LIFO/FIFO implementations, bracket balancing, sliding window problems.
-
-Queue using Stacks, Next Greater Element
-
-04_Dynamic_Programming
+03_Dynamic_Programming
 
 Solutions covering core DP concepts like recursion + memoization and tabulation.
 
