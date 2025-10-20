@@ -100,17 +100,5 @@ g++ solution_file.cpp -o solution
 
 
 
-📝 Learning Philosophy & Commitment
-
-My approach to DSA is focused on mastery through practice:
-
-Conceptual Understanding: Implementing data structures from scratch (e.g., custom linked lists) to deeply understand memory layout and pointers.
-
-Time/Space Complexity: Every solution aims for optimal complexity, with notes added to challenging problems to justify the complexity analysis.
-
-Consistency: Committing to regular practice to build problem-solving muscle memory.
-
-Language: Utilizing C/C++ to gain a strong understanding of low-level memory management and efficiency.
-
 
 Feel free to fork this repository or suggest improvements!
