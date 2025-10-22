@@ -25,7 +25,7 @@ using namespace std ;
         if(n == 1) return 0 ;
         else if(n == 2) return abs(nums[0]-nums[1]);
         
-        arr[n-1]= 0 ;//[Using bottom up aproach that is very much similar to this]we can use two variables here prev and curr 
+        arr[n-1]= 0 ;//[Using bottom up aproach that is very much similar to this] we can use two variables here prev2(for arr[i-2]) and prev1(for arr[i-1]) 
         //because for arr[i] we need only arr[i-1] and arr[i-2] after the loop we can just print the ans(taken as another variable)
         arr[n-2] = abs(nums[n-2]-nums[n-1]);
         for(int i = n-3 ; i >=0; i--){
