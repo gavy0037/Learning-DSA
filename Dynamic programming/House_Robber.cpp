@@ -13,6 +13,7 @@
 
 #include<iostream>
 #include<vector>
+#include<climits>
 
 using namespace std ;
 
@@ -37,3 +38,39 @@ int help(int n , vector<int> &nums , int pos , vector<int> &arr){
         vector<int>arr(n , -1) ;
         return help(n , nums , 0 , arr);
     }
+
+// ***** LETS TRY TO DO TABULATION****** // MAKES THE THE ALGO FREE OF STACK SPACE
+
+int House_robber(vector<int> &nums){
+    int n = nums.size();
+    vector<int>dp(n , -1) ;
+    dp[0] = nums[0];
+    for(int i = 1 ; i < n ; i++){
+        int pick = INT_MIN ;
+        if(i > 1){
+            pick = dp[i-1] + nums[i];
+        }
+        int notpick = 0 + dp[i-1];
+
+        dp[i] = max(pick , notpick) ;
+    }
+
+    return dp[n-1] ;
+}
+
+// ****** SPACE OPTIMIZATION ******
+
+int House_robber_with_space_optimization(vector<int> &nums){
+    int prev2 = 0 , prev1 ;
+    prev1 = nums[0] ;
+
+    for(int i = 1 ; i < nums.size() ; i++){
+        int take = prev2 + nums[i];
+        int notTake = prev1  + 0 ;
+
+        prev2 = prev1 ;
+        prev1 = max(take , notTake);
+    }
+
+    return prev1 ;
+}
