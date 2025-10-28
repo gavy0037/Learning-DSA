@@ -1,44 +1,59 @@
+/*You are given N stalls located along a straight line at positions x1, x2, ..., xN, and you are asked to place C cows in these stalls.
+The goal is to maximize the minimum distance between any two cows.
+
+Input:
+
+The first line contains two integers:
+N — the number of stalls,
+C — the number of cows.
+
+The next line contains N integers — the positions of the stalls.
+
+Output:
+
+Output a single integer — the largest minimum distance possible between any two cows.
+
+*/
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
 
 using namespace std;
 
-bool isvalid(int mindistance,vector<int>nums,int cows){
-    int cow = 1 , lastpos = 0 ;
-    for(int i = 1 ;i<nums.size() ; i++){
-        if(nums[i]-nums[lastpos] >= mindistance){
-            lastpos = i ;
-            cow++;
+ bool valid(vector<int> &nums , int cows , int mindistance){
+        int curr_cows = 1 , lastpos = 0  ;
+        for(int i = 1 ; i < nums.size() ; i++){
+            if(nums[i]-nums[lastpos] >= mindistance){
+                curr_cows++;
+                lastpos = i ;
+            }
         }
-        if(cow == cows){
-            return true;
-        }
+        if(cows <= curr_cows) return true ;
+        
+        return false ;
     }
-    return false ;
-}
-
-int largestmindistance(int cows , vector<int>& nums){
-
-    int n =nums.size();
-    sort(nums.begin(),nums.end());
-    int maxdif = nums[n-1]-nums[0];
-    int ans = -1 ;
-    int st = 1 , end  = maxdif;
-    while(st<=end){
-        int mid = st + (end-st)/2;
-        if(isvalid(mid,nums,cows)){
-            st = mid+1 ;
-            ans = mid; 
-        }else{
-            end = mid-1;
+    int aggressiveCows(vector<int> &nums, int k) {
+        // code here
+        sort(nums.begin() , nums.end());
+        int n = nums.size()-1 ;
+        int maxdif = nums[n]-nums[0] , ans = -1 ;
+        int st = 1 , end = maxdif ;
+        
+        while(st<=end){
+            int mid = st+(end-st)/2 ;
+            if(valid(nums , k , mid )){
+                ans = mid ;
+                st = mid+1 ;
+            }else{
+                end = mid-1 ;
+            }
         }
+        return ans ;
     }
-return ans;
-}
 
 int main(){
-    vector<int>nums = {1,2,4,8,9};
-    int cows = 3 ;
-    cout<<largestmindistance(cows,nums);
+    vector<int>nums = {6,4,3,16,20,7,18,10};
+    int cows = 5 ;
+    cout<<aggressiveCows(nums , cows);
 }
