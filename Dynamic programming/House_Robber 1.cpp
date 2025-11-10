@@ -1,14 +1,14 @@
 /*
-    PROBLEM STATEMENT
+                                PROBLEM STATEMENT
     Given an array arr containing positive integers. Find the maximum sum of elements of any possible subsequence such that
     no two numbers in the subsequence should be adjacent in array arr[].
 
-        OR(house robber)
-        You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed,
-        the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected 
-        and it will automatically contact the police if two adjacent houses were broken into on the same night.
-        Given an integer array nums representing the amount of money of each house, 
-        return the maximum amount of money you can rob tonight without alerting the police.
+                                    OR(house robber)
+    You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed,
+    the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected 
+    and it will automatically contact the police if two adjacent houses were broken into on the same night.
+    Given an integer array nums representing the amount of money of each house, 
+    return the maximum amount of money you can rob tonight without alerting the police.
 */
 
 #include<iostream>
