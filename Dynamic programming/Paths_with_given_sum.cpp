@@ -1,5 +1,6 @@
 /*
-You are given a matrix mat[][] of size n x m, where each of its cells contains some coins. Count the number of ways to collect exactly k coins while moving from the top left cell of the matrix to the bottom right cell.
+You are given a matrix mat[][] of size n x m, where each of its cells contains some coins. Count the number of ways to collect 
+exactly k coins while moving from the top left cell of the matrix to the bottom right cell.
 From a cell (i, j), you can only move to cell (i+1, j) or (i, j+1).
 */
 

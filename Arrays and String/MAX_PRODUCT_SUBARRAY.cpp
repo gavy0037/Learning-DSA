@@ -9,7 +9,7 @@ using namespace std ;
         // code here
         int maxi = nums[0] , mini = nums[0];
         int ans = maxi ;
-        for(int i = 1 ; i < nums.size() ; i++){
+        for(int i = 1 ; i < nums.size() ; i++){ 
             int temp = max({nums[i],nums[i]*maxi,nums[i]*mini});
             mini = min({nums[i] , nums[i]*mini , nums[i]*maxi});
             maxi = temp ;
@@ -31,7 +31,7 @@ using namespace std ;
                 rl = 1 ;
             }
             
-            lr*nums[i];
+            lr*=nums[i];
             rl*=nums[n-i-1];
             ans = max({ans , rl , lr});
         }
