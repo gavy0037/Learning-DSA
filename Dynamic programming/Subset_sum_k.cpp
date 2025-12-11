@@ -4,7 +4,7 @@
 
 using namespace std ;
 
-    int isSubsetSum(vector<int> arr, int sum) {
+    int isSubsetSum1(vector<int> arr, int sum) {
         // code here
         int n = arr.size();
         vector<int>dp(sum+1 , 0);
@@ -18,8 +18,30 @@ using namespace std ;
         return dp[sum] ;
     }
 
+    /******************* EASIER TO UNDERSTAND *********************/
+
+    int isSubsetSum2(vector<int> arr, int sum) {
+        // code here
+        int n = arr.size();
+        vector<vector<bool>>dp(n , vector<bool>(sum+1 , -1));
+        for(int i = 0 ; i < n ; i++) dp[i][0] = false ;
+        if(arr[0] <= sum) dp[0][arr[0]] = true ;
+        
+        for(int i = 1 ; i < n ; i++){
+            for(int j = 1; j <= sum ; j++){
+                bool nottake = dp[i-1][j];
+
+                bool take = false ;
+                if(j-arr[i] >= 0) take = dp[i-1][j-arr[i]];
+
+                dp[i][j] = take | nottake ;
+            }
+        }
+        return dp[n-1][sum];
+    }
+
 int main(){
-    cout<<isSubsetSum({51 ,41 ,6 ,16, 56, 46, 58, 46 ,19 ,1 ,47 ,31 ,5 ,58} ,383);
+    cout<<isSubsetSum2({51 ,41 ,6 ,16, 56, 46, 58, 46 ,19 ,1 ,47 ,31 ,5 ,58} ,383);
 
     return 0 ;
 }
