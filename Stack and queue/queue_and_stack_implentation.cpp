@@ -218,6 +218,43 @@ class queue_using_stack{// done using 2 stacks
         void pop(){ s1.pop(); }
 };
 
+class circular_queue{
+    int *arr , front , rear , size , curr_size ;
+    public:
+        circular_queue(int capacity){
+            size = capacity ; curr_size = 0 ;
+            front = 0 ;
+            rear = -1 ;
+            arr = new int[size];
+        }
+
+        void push(int data){
+            if(curr_size == size){
+                cout<<"Queue is full\n";
+                return ;
+            }
+
+            rear = (rear+1)%size ;
+            arr[rear] = data ;
+        }
+        void pop(){ 
+            if(curr_size == 0){
+                cout<<"Queue is empty\n";
+                return ;
+            }
+            front = (front+1)%size ;
+        }
+        int front(){
+            // assuming only called when size of queue is > 0
+
+            return arr[front];
+        }
+
+        int size(){ return curr_size ;}
+
+        bool empty(){ return curr_size > 0 ;}
+};
+
 int main(){
 
     return 0 ;
