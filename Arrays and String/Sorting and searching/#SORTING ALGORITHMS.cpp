@@ -35,7 +35,6 @@ vector<int> selectionsort(vector<int>nums){
     }
 
 vector<int> insertionsort(vector<int>nums){
-
     for(int i = 1 ; i < nums.size() ; i++){
         int curr = nums[i];
         int prev = i-1;
@@ -44,8 +43,8 @@ vector<int> insertionsort(vector<int>nums){
             prev--;
         }
         nums[prev+1] = curr ;
-}
-return nums;
+    }
+    return nums;
 }
 
 
