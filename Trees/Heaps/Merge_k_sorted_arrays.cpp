@@ -55,3 +55,38 @@ vector<int> mergeKSortedArrays(vector<vector<int>>& nums, int k)
     }
     return ans ;
 }
+
+
+// MY SOLUTION 
+
+class cmp{
+    public :
+        bool operator()(pair<int , int > &a , pair<int , int> &b){
+            return a.first > b.first ;
+        }
+};
+
+class Solution {
+  public:
+    vector<int> mergeArrays(vector<vector<int>> &mat) {
+        // Code here
+        int n = mat.size() , m = mat[0].size();
+        
+        priority_queue<pair<int , int> , vector<pair<int , int >> , cmp >pq ;
+        vector<int>pointer(n , 0);
+        for(int i = 0 ; i < n;  i++) pq.push({mat[i][0] , i});
+        vector<int>ans ;
+        while(!pq.empty()){
+            auto curr = pq.top();
+            pq.pop();
+
+            ans.push_back(curr.first);
+            int idx = curr.second ;
+            if(pointer[idx] < m-1){
+                pointer[idx]++;
+                pq.push({mat[idx][pointer[idx]], idx});
+            }
+        }
+        return ans ;
+    }
+};

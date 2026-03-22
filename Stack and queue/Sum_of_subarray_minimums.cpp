@@ -41,7 +41,7 @@ int sumSubarrayMins(vector<int>& arr) {
     for(int i = 0 ;i < n; i++){
         int left = i-left_smaller[i] , right = right_smaller[i]-i ;
 
-        long long freq = left*right ;
+        long long freq = left*right ;// number of subarrays that have endpoints such that the element nums[i] is included in that
 
         int val = (freq*arr[i])%MOD ;
         sum = (sum+val)%MOD;
