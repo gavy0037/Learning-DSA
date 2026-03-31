@@ -1,6 +1,3 @@
-/*
-Given an undirected graph with V vertices and E edges, represented as a 2D vector edges[][], where each entry edges[i] = [u, v] denotes an edge between vertices u and v, determine whether the graph contains a cycle or not.
-*/
 
 #include<iostream>
 #include<vector>
@@ -8,6 +5,9 @@ Given an undirected graph with V vertices and E edges, represented as a 2D vecto
 
 using namespace std ;
 
+/*
+Given an undirected graph with V vertices and E edges, represented as a 2D vector edges[][], where each entry edges[i] = [u, v] denotes an edge between vertices u and v, determine whether the graph contains a cycle or not.
+*/
 bool DetectCycle_BFS(int v , vector<vector<int>>& E){
     // vertices are zero indexed
     // we have atleast one vertex
@@ -67,3 +67,24 @@ bool detectCycle_DFS(int v , vector<vector<int>>& E){
 
     return false ;
 }
+
+
+bool dfsDirected(int V , vector<vector<int>> &adjList , vector<int> &vis , vector<int> &path , int currNode){
+    vis[currNode]= path[currNode] = 1 ;
+
+    for(auto i : adjList[currNode]){
+        if(!vis[i]){
+            bool x = dfsDirected(V , adjList , vis , path , currNode);
+            if(!x){
+                return false ;
+            }
+        }
+        else if(path[i]) return false ;
+    }
+    path[currNode] = 0 ;
+    return true ;
+}
+
+/*
+    FOR A DIRECTED GRAPH cycle detection using BFS , we do toposort and if the sorted array has a size of V elements then the topo sort was successful , no cycle , however if it doesn't have V elements , then there is a cycle.
+*/
