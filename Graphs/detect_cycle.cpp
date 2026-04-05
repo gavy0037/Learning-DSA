@@ -86,5 +86,5 @@ bool dfsDirected(int V , vector<vector<int>> &adjList , vector<int> &vis , vecto
 }
 
 /*
-    FOR A DIRECTED GRAPH cycle detection using BFS , we do toposort and if the sorted array has a size of V elements then the topo sort was successful , no cycle , however if it doesn't have V elements , then there is a cycle.
+    FOR A DIRECTED GRAPH cycle detection using BFS , we do toposort and if the sorted array has a size of V elements then the topo sort was successful , no cycle , however if it doesn't have V elements , then there is a cycle. This approach is valid only if using bfs , for using dfs's topo sort , you need to check the cycle also.
 */

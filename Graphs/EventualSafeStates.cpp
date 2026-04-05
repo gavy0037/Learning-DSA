@@ -56,3 +56,40 @@ vector<int> eventualSafeNodes(vector<vector<int>>& adjList) {
     
     return res;
 }
+
+
+
+/* DOING WITH BFS */
+
+vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+    // reverse the graph
+    int V = graph.size();
+    vector<vector<int>>adjList(V); // this is the reversed adjList
+    vector<int> indeg(V , 0);
+
+    for(int i = 0 ;i  < V ; i++){
+        for(auto v : graph[i]){
+            adjList[v].push_back(i);
+            indeg[i]++;
+        }
+    }
+
+    queue<int> q;
+    for(int i = 0 ; i < V ; i++){
+        if(indeg[i] == 0) q.push(i);
+    }
+
+    vector<int>ans ;
+    while(!q.empty()){
+        int c = q.front();
+        q.pop();
+        ans.push_back(c);
+        for(auto i : adjList[c]){
+            indeg[i]--;
+            if(indeg[i] == 0) q.push(i);
+        }
+    }
+
+
+    return ans ;
+}
