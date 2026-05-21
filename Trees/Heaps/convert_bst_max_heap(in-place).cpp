@@ -12,7 +12,7 @@ typedef struct Node {
     struct Node *left, *right;
 }Node ;
 
-// For converting to a max-heap , we first store the inorder transversal of the tree , then we do preorder to make the tree into a max-heap , the same is done for min-heap but instead of preorder we do postorder transversal of the tree.
+// For converting to a max-heap , we first store the inorder transversal of the tree , then we do postorder to make the tree into a max-heap , the same is done for min-heap but instead of postorder we do preorder transversal of the tree.
 
 void in(Node *root , vector<int> &inorder){
     if(root == NULL) return ;

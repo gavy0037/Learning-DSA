@@ -11,7 +11,7 @@ class DisjointSet{
     private:
         vector<int>rank, parent, size ;
     public:
-        DisjoinSet(int n){
+        DisjointSet(int n){
             rank.resize(n+1,0);
             parent.resize(n+1,0);
             size.resize(n+1,1);
@@ -64,7 +64,7 @@ int mst(int V , vector<vector<int>> &edges){
 
     // this can be done using Disjoint sets
 
-    DisjoinSet ds(V);
+    DisjointSet ds(V);
     int sum = 0 ;
     for(auto it : edges){
         if(ds.findUltimateParent(it[1]) != ds.findUltimateParent(it[2])){
